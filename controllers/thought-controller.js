@@ -93,7 +93,7 @@ const thoughtController = {
     },
 
     // remove thought
-    removeThought({ params }, res) {
+    deleteThought({ params }, res) {
         thought.findOneAndDelete({ _id: params.thoughtId })
             .then(deletedThought => {
                 if (!deletedThought) {
@@ -145,7 +145,7 @@ const thoughtController = {
      * To delete reaction 
      * API: http://localhost:3001/api/thoughts/621ce1007bc3b4ee87ddc514/reactions/621cf40f75f1c6a3d1b744c5
      */
-    removeReaction({ params }, res) {
+    deleteReaction({ params }, res) {
         console.log(params.thoughtId, params.reactionId);
         thought.findOneAndUpdate(
             { _id: params.thoughtId },

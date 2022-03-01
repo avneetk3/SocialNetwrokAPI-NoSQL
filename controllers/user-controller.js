@@ -123,7 +123,7 @@ const userController = {
      * API: /api/users/:userId/friends/:friendId
      * Example: http://localhost:3001/api/users/621cd0d2a77b48498e6fa7de/friends/621cd0b7a77b48498e6fa7da 
      */
-    removeFriend({ params }, res) {
+    deleteFriend({ params }, res) {
         user.findOneAndUpdate({ _id: params.id }, { $pull: { friends: params.friendId } }, { runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {
